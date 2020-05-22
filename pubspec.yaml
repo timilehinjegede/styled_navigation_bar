@@ -1,8 +1,8 @@
 name: stylednavigationbar
-description: A new Flutter package.
+description: A flutter packaging packed with different bottom navigation bar styles.
 version: 0.0.1
-author:
-homepage:
+author: Timilehin Jegede<timilehintimothy.jegede@gmail.com>
+homepage: https://github.com/timilehinjegede/styled_navigation_bar.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
