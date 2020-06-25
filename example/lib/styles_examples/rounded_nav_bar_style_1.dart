@@ -117,8 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         navBarDecoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
+            color: Colors.white,
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
         ),
         indicatorRadius: 23,
         items: [
