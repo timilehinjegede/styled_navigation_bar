@@ -6,12 +6,11 @@ class RoundedBottomNavigationBar extends StatefulWidget {
     @required this.items,
     this.currentIndex = 0,
     this.elevation = 8,
-    this.radius,
-    this.shape,
+    this.radius = 20,
     this.navBarDecoration,
-    this.navItemDecoration,
+    this.navItemDecoration = const BoxDecoration(color: Colors.blue),
     this.onTap,
-    this.duration,
+    this.duration = const Duration(milliseconds: 300),
   });
 
   /// this is the height of the bottom navigation bar
@@ -35,9 +34,6 @@ class RoundedBottomNavigationBar extends StatefulWidget {
 
   /// radius of the bottom nav bar item. if [shape] is given, [radius] must not be given
   final double radius;
-
-  /// shape of the bottom nav bar item. if [radius] is given, [shape] must not be given
-  final BoxShape shape;
 
   /// Called when one of the [items] is tapped.
   ///
@@ -65,6 +61,7 @@ class _RoundedBottomNavigationBarState
         width: double.infinity,
         decoration: widget.navBarDecoration,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: widget.items.map((item) {
             var index = widget.items.indexOf(item);
             return GestureDetector(
@@ -73,7 +70,6 @@ class _RoundedBottomNavigationBarState
                 item: item,
                 duration: widget.duration,
                 radius: widget.radius,
-                shape: widget.shape,
                 decoration: widget.navItemDecoration,
                 isSelected: index == widget.currentIndex,
               ),
@@ -109,7 +105,7 @@ class ItemWidget extends StatelessWidget {
       duration: duration,
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(horizontal: isSelected ? 5 : 0),
-      decoration: decoration,
+      decoration: isSelected ? decoration : null,
       child: isSelected ? item.activeIcon : item.inactiveIcon,
     );
   }

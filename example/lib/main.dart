@@ -52,6 +52,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int index = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -107,6 +108,32 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: RoundedBottomNavigationBar(
+        currentIndex: index,
+        onTap: (value) {
+          setState(() {
+            index = value;
+          });
+        },
+        navItemDecoration: BoxDecoration(
+          color: Colors.blue,
+          shape: BoxShape.circle,
+        ),
+        items: [
+          RoundedBottomNavItem(
+              activeIcon: Icon(Icons.search, color: Colors.white),
+              inactiveIcon: Icon(Icons.dashboard)),
+          RoundedBottomNavItem(
+              activeIcon: Icon(Icons.forward, color: Colors.white),
+              inactiveIcon: Icon(Icons.verified_user)),
+          RoundedBottomNavItem(
+              activeIcon: Icon(
+                Icons.remove,
+                color: Colors.white,
+              ),
+              inactiveIcon: Icon(Icons.work)),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
