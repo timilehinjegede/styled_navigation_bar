@@ -109,31 +109,24 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: RoundedBottomNavigationBar(
+      bottomNavigationBar: Style4Example(
         currentIndex: index,
         onTap: (value) {
           setState(() {
             index = value;
           });
         },
-        navBarDecoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
-        ),
-        indicatorRadius: 23,
+        iconFirst: false,
         items: [
-          RoundedBottomNavItem(
-              activeIcon: Icon(Icons.home, color: Colors.white),
-              inactiveIcon: Icon(Icons.dashboard, color: Colors.blue,)),
-          RoundedBottomNavItem(
-              activeIcon: Icon(Icons.business, color: Colors.white),
-              inactiveIcon: Icon(Icons.business_center, color: Colors.blue,)),
-          RoundedBottomNavItem(
-              activeIcon: Icon(
-                Icons.school,
-                color: Colors.white,
-              ),
-              inactiveIcon: Icon(Icons.book, color: Colors.blue,)),
+          Style4Item(
+            text: Text('School'),
+          ),
+          Style4Item(
+            text: Text('House'),
+          ),
+          Style4Item(
+            text: Text('Home'),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
