@@ -3,24 +3,33 @@ import 'package:stylednavigationbar/src/config/size_config.dart';
 import 'package:stylednavigationbar/src/extensions/size_extension.dart';
 
 class BottomNavStyle3 extends StatefulWidget {
-  const BottomNavStyle3(
-      {this.navbarHeight = 80,
-      this.items,
-      this.elevation = 0,
-      this.currentIndex = 0,
-      this.decoration = const BoxDecoration(
-        color: Colors.white,
-      ),
-      this.onTap,
-      this.duration});
+  const BottomNavStyle3({
+    this.navbarHeight = 80,
+    this.items,
+    this.elevation = 0,
+    this.currentIndex = 0,
+    this.decoration = const BoxDecoration(
+      color: Colors.white,
+    ),
+    this.onTap,
+    this.duration = const Duration(
+      milliseconds: 500,
+    ),
+    this.indicatorWidth = 40,
+    this.indicatorHeight = 7,
+    this.indicatorColor = Colors.black,
+  });
 
   final double navbarHeight;
+  final double indicatorWidth;
+  final double indicatorHeight;
   final List items;
   final double elevation;
   final int currentIndex;
   final Decoration decoration;
   final ValueChanged<int> onTap;
   final Duration duration;
+  final Color indicatorColor;
 
   @override
   _BottomNavStyle3State createState() => _BottomNavStyle3State();
@@ -33,50 +42,16 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
   double leftPosition;
   double newLeftPosition;
 
-  // total number of items in the nav bar
-  double _numOfItems = 3;
-  // selected item in the nav bar
-  int _selectedIndex = 0;
   // icon size
   double _iconSize = 24.0;
   // width of the screen
   var _screenWidth;
   // size of indicator
-  double _indicatorSize = 5;
+  double _indicatorSize = 40;
 
   @override
   void initState() {
     super.initState();
-    // setLeft();
-  }
-
-  setLeft() {
-    if (widget.items.length == 4) {
-      leftPosition = 30;
-    } else if (widget.items.length == 3) {
-      leftPosition = 45;
-    }
-  }
-
-  double setNewPosition() {
-    if (widget.items.length == 4) {
-      switch (widget.currentIndex) {
-        case 0:
-          return 30;
-          break;
-        case 1:
-          return 130;
-          break;
-        case 2:
-          return 226;
-          break;
-        case 3:
-          return 326;
-          break;
-        default:
-          return 30;
-      }
-    }
   }
 
   double _getLeft() {
@@ -89,14 +64,13 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
     // calculate left position of indicator
     double _leftPosition = spaceBefore +
         (spaceBetween * widget.currentIndex) -
-        (_indicatorSize / 2);
+        (widget.indicatorWidth / 2);
 
     return _leftPosition;
   }
 
   @override
   Widget build(BuildContext context) {
-    setLeft();
     SizeConfig().init(context);
     _screenWidth = 100.width;
     return Material(
@@ -127,14 +101,12 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
               ),
             ),
             AnimatedPositioned(
-              bottom: 0,
+              bottom: 1.5.height,
               left: _getLeft(),
-              duration: Duration(
-                milliseconds: 500,
-              ),
+              duration: widget.duration,
               child: Container(
-                width: 40,
-                height: 7,
+                width: widget.indicatorWidth,
+                height: widget.indicatorHeight,
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.only(
