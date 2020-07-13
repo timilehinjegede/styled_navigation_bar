@@ -1,8 +1,4 @@
 library stylednavigationbar;
 
 export 'package:stylednavigationbar/src/rounded_bottom_nav.dart';
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:stylednavigationbar/src/nav_style_3.dart';
