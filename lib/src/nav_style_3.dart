@@ -17,7 +17,7 @@ class BottomNavStyle3 extends StatefulWidget {
     ),
     this.indicatorWidth = 40,
     this.indicatorHeight = 7,
-    this.indicatorColor = Colors.black,
+    this.indicatorColor = Colors.grey,
   });
 
   final double navbarHeight;
@@ -108,7 +108,7 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
                 width: widget.indicatorWidth,
                 height: widget.indicatorHeight,
                 decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: widget.indicatorColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(4),
                     topRight: Radius.circular(4),
