@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavStyle3(
+      bottomNavigationBar: BottomNavStyle5(
         currentIndex: index,
         onTap: (value) {
           setState(() {
@@ -66,16 +66,16 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         items: [
-          Style3NavItem(
+          Style5NavItem(
               activeIcon: Icon(Icons.home, color: Colors.grey),
               inactiveIcon: Icon(Icons.home, color: Colors.grey)),
-          Style3NavItem(
+          Style5NavItem(
               activeIcon: Icon(Icons.home, color: Colors.grey),
               inactiveIcon: Icon(Icons.home, color: Colors.grey)),
-          Style3NavItem(
+          Style5NavItem(
               activeIcon: Icon(Icons.home, color: Colors.grey),
               inactiveIcon: Icon(Icons.home, color: Colors.grey)),
-          Style3NavItem(
+          Style5NavItem(
               activeIcon: Icon(Icons.home, color: Colors.grey),
               inactiveIcon: Icon(Icons.home, color: Colors.grey)),
         ],
