@@ -54,9 +54,12 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
     super.initState();
   }
 
-  double _getLeft() {
+  double screenWidth;
+
+  double _getLeft(BuildContext context) {
+    screenWidth = MediaQuery.of(context).size.width;
     // space between the items
-    double spaceBetween = _screenWidth / widget.items.length;
+    double spaceBetween = screenWidth / widget.items.length;
     // space before the items
     double spaceBefore =
         spaceBetween / 2; // OR [(_screenWidth / _numOfItems) / 2]
@@ -71,8 +74,8 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    _screenWidth = 100.width;
+    SizeConfig(context).init(context);
+    screenWidth = MediaQuery.of(context).size.width;
     return Material(
       color: Colors.transparent,
       elevation: widget.elevation,
@@ -102,7 +105,7 @@ class _BottomNavStyle3State extends State<BottomNavStyle3> {
             ),
             AnimatedPositioned(
               bottom: 1.5.height,
-              left: _getLeft(),
+              left: _getLeft(context),
               duration: widget.duration,
               child: Container(
                 width: widget.indicatorWidth,

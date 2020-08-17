@@ -18,8 +18,11 @@ import 'package:flutter/material.dart';
 
 //A custom class for handling text size, margin szie and other responsiveness related issues
 class SizeConfig {
-  // static keyword included so you can call this method without instantiating an object of it like so :
-  // SizeConfig.height(context, 2)
+  final BuildContext ctx;
+
+  SizeConfig(this.ctx) {
+    appContext = ctx;
+  }
 
   static BuildContext appContext;
   static MediaQueryData _mediaQueryData;

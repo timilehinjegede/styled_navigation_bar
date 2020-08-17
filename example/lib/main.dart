@@ -58,28 +58,54 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavStyle3(
+      bottomNavigationBar: BottomNavStyle5(
         currentIndex: index,
-        indicatorColor: Colors.blue,
-        duration: Duration(milliseconds: 200),
         onTap: (value) {
           setState(() {
             index = value;
           });
         },
         items: [
-          Style3NavItem(
-              activeIcon: Icon(Icons.home, color: Colors.blue),
-              inactiveIcon: Icon(Icons.home, color: Colors.grey)),
-          Style3NavItem(
-              activeIcon: Icon(Icons.access_alarm, color: Colors.blue),
-              inactiveIcon: Icon(Icons.access_alarm, color: Colors.grey)),
-          Style3NavItem(
-              activeIcon: Icon(Icons.message, color: Colors.blue),
-              inactiveIcon: Icon(Icons.message, color: Colors.grey)),
-          Style3NavItem(
-              activeIcon: Icon(Icons.info, color: Colors.blue),
-              inactiveIcon: Icon(Icons.info, color: Colors.grey)),
+          Style5NavItem(
+            activeIcon: Icon(Icons.home, color: Colors.white),
+            inactiveIcon: Icon(Icons.home, color: Colors.white),
+            title: Text(
+              'Home',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Style5NavItem(
+            activeIcon: Icon(Icons.accessibility, color: Colors.white),
+            inactiveIcon: Icon(Icons.accessibility, color: Colors.white),
+            title: Text(
+              'Second',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Style5NavItem(
+            activeIcon: Icon(Icons.home, color: Colors.white),
+            inactiveIcon: Icon(Icons.home, color: Colors.white),
+            title: Text(
+              'Third mhen',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Style5NavItem(
+            activeIcon: Icon(Icons.home, color: Colors.white),
+            inactiveIcon: Icon(Icons.home, color: Colors.white),
+            title: Text(
+              'Fourth',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
