@@ -28,52 +28,36 @@ class _Style2ExampleState extends State<Style2Example> {
           ],
         ),
       ),
-      bottomNavigationBar: RoundedBottomNavigationBar(
+      bottomNavigationBar: Style2BottomNav(
         currentIndex: _index,
         onTap: (value) {
           setState(() {
             _index = value;
           });
         },
-        navBarDecoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(
-              30,
-            ),
-          ),
-        ),
-        indicatorRadius: 23,
         items: [
-          RoundedBottomNavItem(
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
-            inactiveIcon: Icon(
-              Icons.dashboard,
-              color: Colors.blue,
-            ),
-          ),
-          RoundedBottomNavItem(
-            activeIcon: Icon(
-              Icons.business,
-              color: Colors.white,
-            ),
-            inactiveIcon: Icon(
-              Icons.business_center,
-              color: Colors.blue,
-            ),
-          ),
-          RoundedBottomNavItem(
-            activeIcon: Icon(
+          Style2Item(
+            icon: Icon(
               Icons.school,
-              color: Colors.white,
             ),
-            inactiveIcon: Icon(
-              Icons.book,
-              color: Colors.blue,
+            text: Text(
+              'School',
+            ),
+          ),
+          Style2Item(
+            icon: Icon(
+              Icons.business,
+            ),
+            text: Text(
+              'Business',
+            ),
+          ),
+          Style2Item(
+            icon: Icon(
+              Icons.home,
+            ),
+            text: Text(
+              'Home',
             ),
           ),
         ],
