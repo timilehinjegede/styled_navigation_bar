@@ -47,15 +47,22 @@ class _Style2BottomNavState extends State<Style2BottomNav> {
   }
 }
 
-class _Style2ItemWidget extends StatelessWidget {
+class _Style2ItemWidget extends StatefulWidget {
   final Style2Item item;
   final bool isSelected;
 
   _Style2ItemWidget({this.item, this.isSelected});
 
   @override
+  __Style2ItemWidgetState createState() => __Style2ItemWidgetState();
+}
+
+class __Style2ItemWidgetState extends State<_Style2ItemWidget>
+    with SingleTickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      height: 40,
       duration: Duration(
         milliseconds: 400,
       ),
@@ -63,12 +70,22 @@ class _Style2ItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           8.0,
         ),
-        color: isSelected ? Colors.blue : Colors.transparent,
+        color: widget.isSelected ? Colors.blue : Colors.transparent,
       ),
       child: Row(
         children: [
-          item.icon,
-          isSelected ? item.text : SizedBox.shrink(),
+          widget.item.icon,
+          SizedBox(
+            width: 10,
+          ),
+          AnimatedSize(
+            duration: Duration(
+              milliseconds: 500,
+            ),
+            curve: Curves.easeInOut,
+            vsync: this,
+            child: widget.isSelected ? widget.item.text : SizedBox.shrink(),
+          ),
         ],
       ),
     );
