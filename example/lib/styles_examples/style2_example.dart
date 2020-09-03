@@ -60,6 +60,14 @@ class _Style2ExampleState extends State<Style2Example> {
               'Home',
             ),
           ),
+           Style2Item(
+            icon: Icon(
+              Icons.score,
+            ),
+            text: Text(
+              'Score',
+            ),
+          ),
         ],
       ),
     );

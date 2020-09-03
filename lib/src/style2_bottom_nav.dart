@@ -24,9 +24,18 @@ class _Style2BottomNavState extends State<Style2BottomNav> {
       color: Colors.transparent,
       elevation: 8,
       child: Container(
-        height: 80,
-        color: Colors.white,
+        height: 70,
         width: double.infinity,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(
+                20.0,
+              ),
+              topRight: Radius.circular(
+                20.0,
+              ),
+            )),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -68,19 +77,24 @@ class __Style2ItemWidgetState extends State<_Style2ItemWidget>
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
-          8.0,
+          20.0,
         ),
         color: widget.isSelected ? Colors.blue : Colors.transparent,
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: 15.0,
       ),
       child: Row(
         children: [
           widget.item.icon,
-          SizedBox(
-            width: 10,
-          ),
+          widget.isSelected
+              ? SizedBox(
+                  width: 10,
+                )
+              : SizedBox.shrink(),
           AnimatedSize(
             duration: Duration(
-              milliseconds: 500,
+              milliseconds: 400,
             ),
             curve: Curves.easeInOut,
             vsync: this,
