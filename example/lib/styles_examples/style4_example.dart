@@ -28,48 +28,38 @@ class _Style4ExampleState extends State<Style4Example> {
           ],
         ),
       ),
-      bottomNavigationBar: RoundedBottomNavigationBar(
+      bottomNavigationBar: Style4BottomNav(
         currentIndex: _index,
         onTap: (value) {
           setState(() {
             _index = value;
           });
         },
-        navBarDecoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(
-              30,
-            ),
-          ),
-        ),
-        indicatorRadius: 23,
         items: [
-          RoundedBottomNavItem(
+          Style4Item(
             activeIcon: Icon(
               Icons.home,
-              color: Colors.white,
+              color: Colors.red,
             ),
             inactiveIcon: Icon(
               Icons.dashboard,
               color: Colors.blue,
             ),
           ),
-          RoundedBottomNavItem(
+          Style4Item(
             activeIcon: Icon(
               Icons.business,
-              color: Colors.white,
+              color: Colors.red,
             ),
             inactiveIcon: Icon(
               Icons.business_center,
               color: Colors.blue,
             ),
           ),
-          RoundedBottomNavItem(
+          Style4Item(
             activeIcon: Icon(
               Icons.school,
-              color: Colors.white,
+              color: Colors.red,
             ),
             inactiveIcon: Icon(
               Icons.book,

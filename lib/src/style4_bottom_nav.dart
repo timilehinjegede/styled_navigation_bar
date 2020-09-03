@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Style4Example extends StatefulWidget {
+class Style4BottomNav extends StatefulWidget {
   final int currentIndex;
   final List<Style4Item> items;
   final ValueChanged onTap;
   final bool switchItems;
   final bool iconFirst;
 
-  Style4Example({
+  Style4BottomNav({
     this.currentIndex,
     this.items,
     this.onTap,
@@ -16,10 +16,10 @@ class Style4Example extends StatefulWidget {
   });
 
   @override
-  _Style4ExampleState createState() => _Style4ExampleState();
+  _Style4BottomNavState createState() => _Style4BottomNavState();
 }
 
-class _Style4ExampleState extends State<Style4Example> {
+class _Style4BottomNavState extends State<Style4BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Material(

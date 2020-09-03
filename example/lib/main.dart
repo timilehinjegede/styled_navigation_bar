@@ -1,4 +1,6 @@
+import 'package:example/styles_examples/style1_example.dart';
 import 'package:example/styles_examples/style2_example.dart';
+import 'package:example/styles_examples/style4_example.dart';
 import 'package:flutter/material.dart';
 import 'package:stylednavigationbar/stylednavigationbar.dart';
 
@@ -28,8 +30,8 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Style2Example(
-        title: 'Style2 Example',
+      home: Style4Example(
+        title: 'Style4 Example',
       ),
     );
   }
