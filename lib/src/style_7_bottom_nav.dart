@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Style7BottomNav extends StatefulWidget {
-
   final int currentIndex;
   final List<Style7Item> items;
   final ValueChanged onTap;
   final Color indicatorCOlor;
 
-  const Style7BottomNav({Key key, this.currentIndex, this.items, this.onTap, this.indicatorCOlor}) : super(key: key);
-  
+  const Style7BottomNav(
+      {Key key, this.currentIndex, this.items, this.onTap, this.indicatorCOlor})
+      : super(key: key);
+
   @override
   _Style7BottomNavState createState() => _Style7BottomNavState();
 }
@@ -53,31 +54,22 @@ class _Style7BottomNavState extends State<Style7BottomNav> {
 }
 
 class _Style7ItemWidget extends StatefulWidget {
-
   final Style7Item item;
   final bool isSelected;
 
-  const _Style7ItemWidget({Key key, this.item, this.isSelected}) : super(key: key);
+  const _Style7ItemWidget({Key key, this.item, this.isSelected})
+      : super(key: key);
 
   @override
   _Style7ItemWidgetState createState() => _Style7ItemWidgetState();
 }
 
-class _Style7ItemWidgetState extends State<_Style7ItemWidget> with SingleTickerProviderStateMixin {
-
+class _Style7ItemWidgetState extends State<_Style7ItemWidget>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return  AnimatedContainer(
+    return Container(
       height: 40,
-      duration: Duration(
-        milliseconds: 400,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(
-          20.0,
-        ),
-        color: widget.isSelected ? Colors.green : Colors.transparent,
-      ),
       padding: EdgeInsets.symmetric(
         horizontal: 15.0,
       ),
@@ -95,7 +87,27 @@ class _Style7ItemWidgetState extends State<_Style7ItemWidget> with SingleTickerP
             ),
             curve: Curves.easeInOut,
             vsync: this,
-            child: widget.isSelected ? widget.item.text : SizedBox.shrink(),
+            // child: widget.isSelected ? widget.item.text : SizedBox.shrink(),
+            child: widget.isSelected
+                ? IntrinsicWidth(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        AnimatedAlign(
+                          duration: Duration(
+                            seconds: 900,
+                          ),
+                          child: widget.item.text,
+                          alignment: Alignment.bottomCenter,
+                        ),
+                        Container(
+                          height: 2,
+                          color: Colors.red,
+                        ),
+                      ],
+                    ),
+                  )
+                : SizedBox.shrink(),
           ),
         ],
       ),
@@ -108,5 +120,4 @@ class Style7Item {
   final Text text;
 
   Style7Item({this.icon, this.text});
-
 }
