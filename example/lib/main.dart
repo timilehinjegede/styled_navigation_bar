@@ -1,7 +1,5 @@
-import 'package:example/styles_examples/style2_example.dart';
 import 'package:example/styles_examples/style7_example.dart';
 import 'package:flutter/material.dart';
-import 'package:stylednavigationbar/stylednavigationbar.dart';
 
 void main() {
   runApp(MyApp());
